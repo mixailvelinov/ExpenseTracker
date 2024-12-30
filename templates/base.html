@@ -1,0 +1,38 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ExpenseTracker</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+
+        </div>
+
+        <nav>
+            <ul>
+                {% if not user.is_authenticated %}
+                    <li><a href="{% url 'login' %}">Log in</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                {% else %}
+                    <li><a href="#">Account</a></li>
+                    <li><a href="{% url 'deposit' %}">Deposit</a></li>
+                    <li><a href="#">Wishlist</a></li>
+                    <li><a href="#">Logout</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+</body>
+</html>
+
+{% block content %}
+
+{% endblock %}
