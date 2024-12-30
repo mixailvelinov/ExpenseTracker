@@ -24,7 +24,12 @@
                     <li><a href="#">Account</a></li>
                     <li><a href="{% url 'deposit' %}">Deposit</a></li>
                     <li><a href="#">Wishlist</a></li>
-                    <li><a href="#">Logout</a></li>
+                    <li>
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button>Log out</button>
+                        </form>
+                    </li>
                 {% endif %}
             </ul>
         </nav>
