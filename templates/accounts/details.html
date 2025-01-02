@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="account-details">
+        <ul>
+            {% for obj in object_list %}
+            <li>Username: {{ obj.username }}</li>
+                {% if obj.first_name %}
+                    <li>Name: {{ obj.first_name }}</li>
+                {% endif %}
+            <li>Email: {{ obj.email }}</li>
+            <li>Date of birth: {{ obj.date_of_birth }}</li>
+            <li>Date joined: {{ obj.date_joined|date:'d M, Y' }}</li>
+            {% endfor %}
+            {% if obj.profile.occupation %}
+                <li>Occupation: {{ obj.profile.occupation }}</li>
+            {% endif %}
+            {% if obj.profile.interests %}
+                <li>Interest: {{ obj.profile.interests }}</li>
+            {% endif %}
+        </ul>
+
+        <div class="account-buttons-container">
+            <button><a href="{% url 'edit' request.user.id %}">Edit</a></button>
+            <button><a href="{% url 'delete' request.user.id %}">Delete</a></button>
+        </div>
+
+    </div>
+
+{% endblock %}

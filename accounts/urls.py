@@ -4,5 +4,8 @@ from accounts import views
 urlpatterns = [
     path('login/', views.UserLoginView.as_view(), name='login'),
     path('register/', views.RegisterView.as_view(), name='register'),
-    path('logout/', views.UserLogoutView.as_view(), name='logout')
+    path('logout/', views.UserLogoutView.as_view(), name='logout'),
+    path('<int:id>/', views.UserDetailsView.as_view(), name='details'),
+    path('<int:id>/edit/', views.UserUpdateView.as_view(), name='edit'),
+    path('<int:id>/delete/', views.user_delete_view, name='delete')
 ]

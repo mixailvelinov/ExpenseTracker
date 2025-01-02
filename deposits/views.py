@@ -14,7 +14,7 @@ class DepositView(CreateView):
     model = Deposit
     form_class = DepositCreateForm
     template_name = 'deposits/deposit.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('deposit')
 
     def form_valid(self, form):
         user = self.request.user
@@ -22,4 +22,12 @@ class DepositView(CreateView):
 
         return super().form_valid(form)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
 
+        total_funds = 0.00
+        for deposit in Deposit.objects.filter(user_id=self.request.user.id):
+            total_funds += deposit.amount
+
+        context['total_funds'] = total_funds
+        return context
