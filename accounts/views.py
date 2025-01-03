@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
 
 from django.contrib.auth.views import LoginView, LogoutView
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import CreateView, ListView, UpdateView
 
 from accounts.forms import UserRegisterForm, UserLoginForm, UserUpdateForm
@@ -28,9 +28,14 @@ class UserLogoutView(LogoutView):
     pass
 
 
-class UserDetailsView(ListView):
-    model = CustomUser
-    template_name = 'accounts/details.html'
+def user_details(request, id):
+    user = get_object_or_404(CustomUser, id=id)
+
+    context = {
+        'user': user,
+    }
+
+    return render(request, 'accounts/details.html', context)
 
 
 class UserUpdateView(UpdateView):

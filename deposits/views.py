@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 
 from deposits.forms import DepositCreateForm
 from deposits.models import Deposit
@@ -31,3 +31,12 @@ class DepositView(CreateView):
 
         context['total_funds'] = total_funds
         return context
+
+
+class DepositHistory(ListView):
+    model = Deposit
+    template_name = 'deposits/deposit-history.html'
+
+    def get_queryset(self):
+        queryset = Deposit.objects.filter(user_id=self.request.user.id)
+        return queryset

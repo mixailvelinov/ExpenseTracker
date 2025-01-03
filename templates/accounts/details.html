@@ -4,20 +4,18 @@
 
     <div class="account-details">
         <ul>
-            {% for obj in object_list %}
-            <li>Username: {{ obj.username }}</li>
-                {% if obj.first_name %}
-                    <li>Name: {{ obj.first_name }}</li>
+            <li>Username: {{ user.username }}</li>
+                {% if user.first_name %}
+                    <li>Name: {{ user.first_name }}</li>
                 {% endif %}
-            <li>Email: {{ obj.email }}</li>
-            <li>Date of birth: {{ obj.date_of_birth }}</li>
-            <li>Date joined: {{ obj.date_joined|date:'d M, Y' }}</li>
-            {% endfor %}
+            <li>Email: {{ user.email }}</li>
+            <li>Date of birth: {{ user.date_of_birth }}</li>
+            <li>Date joined: {{ user.date_joined|date:'d M, Y' }}</li>
             {% if obj.profile.occupation %}
-                <li>Occupation: {{ obj.profile.occupation }}</li>
+                <li>Occupation: {{ user.profile.occupation }}</li>
             {% endif %}
-            {% if obj.profile.interests %}
-                <li>Interest: {{ obj.profile.interests }}</li>
+            {% if user.profile.interests %}
+                <li>Interest: {{ user.profile.interests }}</li>
             {% endif %}
         </ul>
 

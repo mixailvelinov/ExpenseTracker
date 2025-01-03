@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if object_list %}
+        <h2>Deposit History:</h2>
+        <ul>
+            {% for obj in object_list %}
+                <div class="deposit-card">
+                    <li>{{ obj.date }}</li>
+                    <li>{{ obj.amount }}</li>
+                    <li>{{ obj.description }}</li>
+                </div>
+                <br>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>No deposits yet</h2>
+    {% endif %}
+{% endblock %}
