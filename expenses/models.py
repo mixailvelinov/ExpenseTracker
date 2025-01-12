@@ -15,5 +15,7 @@ class Expense(models.Model):
 
     date = models.DateTimeField(auto_now=True)
 
+    user = models.ForeignKey('accounts.CustomUser', on_delete=models.CASCADE)
+
 
 

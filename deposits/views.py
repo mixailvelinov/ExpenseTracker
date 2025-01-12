@@ -24,12 +24,8 @@ class DepositView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['total_funds'] = self.request.user.balance
 
-        total_funds = 0.00
-        for deposit in Deposit.objects.filter(user_id=self.request.user.id):
-            total_funds += deposit.amount
-
-        context['total_funds'] = total_funds
         return context
 
 
@@ -38,5 +34,6 @@ class DepositHistory(ListView):
     template_name = 'deposits/deposit-history.html'
 
     def get_queryset(self):
-        queryset = Deposit.objects.filter(user_id=self.request.user.id)
+        queryset = Deposit.objects.filter(user_id=self.request.user.id).order_by('-date')
+
         return queryset

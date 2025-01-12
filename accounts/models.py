@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth import models as auth_models
+from django.db.models import Sum
+
 from accounts.manager import CustomUserManager
 
 
@@ -12,6 +14,12 @@ class CustomUser(auth_models.AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
+
+    @property
+    def balance(self):
+        total_deposits = self.deposit_set.aggregate(Sum('amount'))['amount__sum'] or 0
+        total_expenses = self.expense_set.aggregate(Sum('amount'))['amount__sum'] or 0
+        return total_deposits - total_expenses
 
 
 class Profile(models.Model):

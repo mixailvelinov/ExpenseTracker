@@ -43,6 +43,10 @@ class WishlistView(ListView, LoginRequiredMixin):
     model = Wish
     template_name = 'common/wishlist.html'
 
+    def get_queryset(self):
+        queryset = Wish.objects.filter(user_id=self.request.user.id)
+        return queryset
+
 
 class WishEdit(UpdateView, LoginRequiredMixin):
     model = Wish

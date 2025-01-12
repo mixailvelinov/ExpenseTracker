@@ -1,3 +1,5 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.urls import reverse_lazy
 
 from django.contrib.auth.views import LoginView, LogoutView
@@ -38,7 +40,7 @@ def user_details(request, id):
     return render(request, 'accounts/details.html', context)
 
 
-class UserUpdateView(UpdateView):
+class UserUpdateView(UpdateView, LoginRequiredMixin):
     model = CustomUser
     template_name = 'accounts/edit.html'
     form_class = UserUpdateForm
@@ -48,7 +50,10 @@ class UserUpdateView(UpdateView):
     def get_success_url(self):
         return reverse_lazy('details', kwargs={'id': self.object.id})
 
-    #make functionality to make sure that the user can change only his details and not someone else's
+    def get_object(self, queryset=None):
+        user = CustomUser.objects.get(pk=self.kwargs['id'])
+        if user != self.request.user:
+            raise PermissionDenied('You do not have permission to edit this account!')
 
 
 def user_delete_view(request, id):
@@ -63,3 +68,5 @@ def user_delete_view(request, id):
         return redirect('index')
 
     return render(request, 'accounts/delete.html', context)
+
+    #TO DO: make sure that a user can't delete someone else's account or while he's logged out
