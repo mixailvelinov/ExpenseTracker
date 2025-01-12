@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="wishlist">
+    {% if object_list %}
+        {% for obj in object_list %}
+            <ul>
+                <li>{{ obj.title }}</li>
+                <li>{{ obj.price }}</li>
+                <li>{{ obj.date_added }}</li>
+                <li>Why I want it: {{ obj.description }}</li>
+                <button><a href="{% url 'wishlist-edit' obj.id %}">Edit Wish</a></button>
+                    <form action="{% url 'wishlist-delete' obj.id %}" method="post">
+                        {% csrf_token %}
+                        <button>Delete Wish</button>
+                    </form>
+                <button>Buy</button>
+            </ul>
+        {% endfor %}
+    {% else %}
+        <p>You haven't added anything to your wishlist yet.</p>
+    {% endif %}
+
+    <button><a href="{% url 'wishlist-create' %}">Create a wish</a></button>
+</div>
+
+{% endblock %}
