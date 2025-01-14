@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if object_list %}
+        {% for obj in object_list %}
+            <ul>
+                <li>{{ obj.title }} - {{ obj.price }}</li>
+            </ul>
+        {% endfor %}
+    {% else %}
+        <p>You haven't bought anything from your Wishlist yet.</p>
+    {% endif %}
+
+{% endblock %}

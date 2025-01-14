@@ -15,7 +15,10 @@
                         {% csrf_token %}
                         <button>Delete Wish</button>
                     </form>
-                <button>Buy</button>
+                <form action="{% url 'wishlist-buy' obj.id %}" method="post">
+                        {% csrf_token %}
+                        <button>Buy item</button>
+                    </form>
             </ul>
         {% endfor %}
     {% else %}
@@ -23,6 +26,7 @@
     {% endif %}
 
     <button><a href="{% url 'wishlist-create' %}">Create a wish</a></button>
+    <button><a href="{% url 'bought-items' %}">Bought items</a></button>
 </div>
 
 {% endblock %}

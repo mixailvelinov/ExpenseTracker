@@ -6,6 +6,8 @@ urlpatterns = [
     path('wishlist/', views.WishlistView.as_view(), name='wishlist'),
     path('wishlist/create', views.WishCreate.as_view(), name='wishlist-create'),
     path('wishlist/edit/<int:id>/', views.WishEdit.as_view(), name='wishlist-edit'),
-    path('wishlist/delete/<int:id>/', views.WishDelete.as_view(), name='wishlist-delete')
+    path('wishlist/delete/<int:id>/', views.WishDelete.as_view(), name='wishlist-delete'),
+    path('wishlist/buy/<int:id>', views.wish_buy, name='wishlist-buy'),
+    path('wishlist/bought/', views.BoughtItemsListView.as_view(), name='bought-items')
 
 ]

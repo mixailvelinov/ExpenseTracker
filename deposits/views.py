@@ -22,12 +22,6 @@ class DepositView(CreateView):
 
         return super().form_valid(form)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['total_funds'] = self.request.user.balance
-
-        return context
-
 
 class DepositHistory(ListView):
     model = Deposit
