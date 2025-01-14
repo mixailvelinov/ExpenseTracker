@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if object_list %}
+        <h2>Expenses History:</h2>
+        <ul>
+            {% for obj in object_list %}
+                <div class="expenses-card">
+                    <li>{{ obj.date }}</li>
+                    <li>{{ obj.amount }}</li>
+                    <li>{{ obj.description }}</li>
+                </div>
+                <br>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>No expenses yet</h2>
+    {% endif %}
+    
+{% endblock %}
