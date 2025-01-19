@@ -1,10 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 
 
-from accounts.models import Profile
+from accounts.models import Profile, CustomUser
 from common.forms import WishCreateForm
 from common.models import Wish
 
@@ -45,6 +46,7 @@ class WishlistView(ListView, LoginRequiredMixin):
 
     def get_queryset(self):
         queryset = Wish.objects.filter(user_id=self.request.user.id, is_bought=False)
+        return queryset
 
 
 class WishEdit(UpdateView, LoginRequiredMixin):
@@ -54,11 +56,23 @@ class WishEdit(UpdateView, LoginRequiredMixin):
     success_url = reverse_lazy('wishlist')
     pk_url_kwarg = 'id'
 
+    def get_object(self, queryset=None):
+        wish = Wish.objects.get(id=self.kwargs['id'])
+        if wish.user.id != self.request.user.id:
+            raise PermissionDenied('You do not have permission to edit this wish!')
+        return wish
+
 
 class WishDelete(DeleteView, LoginRequiredMixin):
     model = Wish
     success_url = reverse_lazy('wishlist')
     pk_url_kwarg = 'id'
+
+    def get_object(self, queryset=None):
+        wish = Wish.objects.get(id=self.kwargs['id'])
+        if wish.user.id != self.request.user.id:
+            raise PermissionDenied('You do not have permission to delete this wish!')
+        return wish
 
 
 def wish_buy(request, id):
