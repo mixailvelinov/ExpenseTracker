@@ -1,0 +1,44 @@
+/*index*/
+
+.body-container {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    background-color: #bee0f3;
+}
+
+ul {
+    list-style: none;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li a {
+    text-decoration: none;
+}
+
+
+/*deposit*/
+
+.deposit-form {
+    display: flex;
+    justify-content: center;
+}
+
+.deposit-form form {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    padding: 5px;
+    gap: 3px;
+}
+
+.deposit-form form button {
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 5px;
+
+}
