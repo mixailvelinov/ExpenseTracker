@@ -15,12 +15,23 @@
 
 .body-container {
     text-align: center;
-    width: 45%;
+    width: 42%;
     margin: 0 auto;
     background-color: #bee0f3;
     border-radius: 10px;
     padding-bottom: 10px;
+    display: flex;
+}
 
+.content-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header {
+    padding-left: 25px;
 }
 
 ul {
@@ -31,6 +42,7 @@ ul {
 nav ul {
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
 }
 
 nav ul li a {
@@ -41,6 +53,7 @@ nav ul li a {
     display: inline-block;
     padding:12px;
     background-color: #97ffde;
+    border-radius: 20px;
 }
 
 
@@ -54,7 +67,7 @@ nav ul li a {
 .deposit-form form, .wish-create-container form, .expenses-form form {
     display: flex;
     flex-direction: column;
-    width: 280px;
+    width: 250px;
     padding: 5px;
     gap: 3px;
 }
@@ -62,19 +75,19 @@ nav ul li a {
 .deposit-form form button, .wish-create-container form button, .expenses-form form button {
     width: 130px;
     margin: 0 auto;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 /*deposit history*/
 
 .deposit-card {
     background-color: #97ffde;
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
 }
 
 li {
-    padding: 2px;
+    padding: 3px;
 }
 
 /*wishlist and wishlist history*/
