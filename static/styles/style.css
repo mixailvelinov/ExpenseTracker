@@ -1,14 +1,31 @@
-/*index*/
+/*index, basic*/
+
+.logo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
 .body-container {
     text-align: center;
-    width: 50%;
+    width: 45%;
     margin: 0 auto;
     background-color: #bee0f3;
+    border-radius: 10px;
+    padding-bottom: 10px;
+
 }
 
 ul {
     list-style: none;
+    padding: 0;
 }
 
 nav ul {
@@ -20,15 +37,21 @@ nav ul li a {
     text-decoration: none;
 }
 
+.funds-counter {
+    display: inline-block;
+    padding:12px;
+    background-color: #97ffde;
+}
 
-/*deposit*/
 
-.deposit-form {
+/*deposit and wishlist*/
+
+.deposit-form, .wish-create-container, .expenses-form {
     display: flex;
     justify-content: center;
 }
 
-.deposit-form form {
+.deposit-form form, .wish-create-container form, .expenses-form form {
     display: flex;
     flex-direction: column;
     width: 280px;
@@ -36,9 +59,33 @@ nav ul li a {
     gap: 3px;
 }
 
-.deposit-form form button {
-    width: 100px;
+.deposit-form form button, .wish-create-container form button, .expenses-form form button {
+    width: 130px;
     margin: 0 auto;
     margin-top: 5px;
+}
 
+/*deposit history*/
+
+.deposit-card {
+    background-color: #97ffde;
+    width: 50%;
+    margin: 0 auto;
+}
+
+li {
+    padding: 2px;
+}
+
+/*wishlist and wishlist history*/
+.wishlist-buttons {
+    padding-bottom: 10px;
+}
+
+.modify-wish-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-top: 10px;
+    gap: 6px;
 }

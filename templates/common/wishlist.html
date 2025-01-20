@@ -10,23 +10,27 @@
                 <li>{{ obj.price }}</li>
                 <li>{{ obj.date_added }}</li>
                 <li>Why I want it: {{ obj.description }}</li>
-                <button><a href="{% url 'wishlist-edit' obj.id %}">Edit Wish</a></button>
-                    <form action="{% url 'wishlist-delete' obj.id %}" method="post">
-                        {% csrf_token %}
-                        <button>Delete Wish</button>
-                    </form>
-                <form action="{% url 'wishlist-buy' obj.id %}" method="post">
-                        {% csrf_token %}
-                        <button>Buy item</button>
-                    </form>
+                <div class="modify-wish-buttons">
+                    <button><a href="{% url 'wishlist-edit' obj.id %}">Edit Wish</a></button>
+                        <form action="{% url 'wishlist-delete' obj.id %}" method="post">
+                            {% csrf_token %}
+                            <button>Delete Wish</button>
+                        </form>
+                    <form action="{% url 'wishlist-buy' obj.id %}" method="post">
+                            {% csrf_token %}
+                            <button>Buy item</button>
+                        </form>
+                </div>    
             </ul>
         {% endfor %}
     {% else %}
         <p>You haven't added anything to your wishlist yet.</p>
     {% endif %}
 
-    <button><a href="{% url 'wishlist-create' %}">Create a wish</a></button>
-    <button><a href="{% url 'bought-items' %}">Bought items</a></button>
+    <div class="wishlist-buttons">
+        <button><a href="{% url 'wishlist-create' %}">Create a wish</a></button>
+        <button><a href="{% url 'bought-items' %}">Bought items</a></button>
+    </div>
 </div>
 
 {% endblock %}

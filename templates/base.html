@@ -13,7 +13,7 @@
 <section class="body-container">
     <header>
         <div class="logo">
-
+            <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
         </div>
 
         <nav>
@@ -34,7 +34,7 @@
                     </li>
                 {% endif %}
             </ul>
-                        <p>Total funds: {{ request.user.balance }}</p>
+                        <p class="funds-counter">Total funds: {{ request.user.balance }}</p>
 
         </nav>
     </header>

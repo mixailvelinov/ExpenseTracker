@@ -5,7 +5,10 @@
     <div class="wish-create-container">
         <form method='post' action="">
             {% csrf_token %}
-            {{ form }}
+            {{ form.title }}
+            {{ form.description }}
+            {{ form.price }}
+            {{ form.image }}
             <button type="submit">Save</button>
         </form>
     </div>
