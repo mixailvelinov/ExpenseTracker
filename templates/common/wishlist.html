@@ -11,14 +11,14 @@
                 <li>{{ obj.date_added }}</li>
                 <li>Why I want it: {{ obj.description }}</li>
                 <div class="modify-wish-buttons">
-                    <button><a href="{% url 'wishlist-edit' obj.id %}">Edit Wish</a></button>
+                    <button class="wish-button"><a href="{% url 'wishlist-edit' obj.id %}">Edit Wish</a></button>
                         <form action="{% url 'wishlist-delete' obj.id %}" method="post">
                             {% csrf_token %}
-                            <button>Delete Wish</button>
+                            <button class="wish-button">Delete Wish</button>
                         </form>
                     <form action="{% url 'wishlist-buy' obj.id %}" method="post">
                             {% csrf_token %}
-                            <button>Buy item</button>
+                            <button class="wish-button">Buy item</button>
                         </form>
                 </div>    
             </ul>

@@ -4,6 +4,11 @@ p, a, ul, li, button {
     font-family: "Exo 2", serif;
 }
 
+input, textarea, select {
+    border-radius: 5px;
+    padding: 5px;
+}
+
 a {
     padding-bottom: 8px;
     text-decoration: none;
@@ -103,12 +108,12 @@ nav ul li a {
 
 /*deposit and wishlist*/
 
-.deposit-form, .wish-create-container, .expenses-form {
+.deposit-form, .wish-create-container, .expenses-form, .login-form {
     display: flex;
     justify-content: center;
 }
 
-.deposit-form form, .wish-create-container form, .expenses-form form {
+.deposit-form form, .wish-create-container form, .expenses-form form, .login-form form {
     display: flex;
     flex-direction: column;
     width: 250px;
@@ -116,7 +121,7 @@ nav ul li a {
     gap: 3px;
 }
 
-.deposit-form form button, .wish-create-container form button, .expenses-form form button {
+.deposit-form form button, .wish-create-container form button, .expenses-form form button, .login-form form button {
     width: 130px;
     margin: 0 auto;
     margin-top: 10px;
@@ -128,6 +133,7 @@ nav ul li a {
     background-color: #97ffde;
     width: 100%;
     margin: 0 auto;
+    border-radius: 10px;
 }
 
 li {
@@ -145,4 +151,10 @@ li {
     margin-top: 10px;
     margin-top: 10px;
     gap: 6px;
+}
+
+.wish-button, .wish-button a {
+    padding: 3px;
+    margin: 0;
+
 }

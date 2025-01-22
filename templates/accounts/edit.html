@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 sdf
 {% block content %}
-    <div class='user-edit-container'>
+    <div class='login-form'>
         <form method="post" action="">
             {% csrf_token %}
-            {{ form }}
+            {{ form.username }}
+            {{ form.email }}
+            {{ form.first_name }}
+            {{ form.last_name }}
+            {{ form.date_of_birth }}
         <button type="submit">Update</button>
         </form>
     </div>
