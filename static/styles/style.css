@@ -1,4 +1,45 @@
-/*index, basic*/
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lexend+Giga:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&display=swap');
+
+p, a, ul, li, button {
+    font-family: "Exo 2", serif;
+}
+
+a {
+    padding-bottom: 8px;
+    text-decoration: none;
+    color: #1b1b1b;
+    display: block;
+}
+
+nav a:hover {
+    background-color: #60ceff;
+    border-radius: 5px;
+}
+
+button {
+    background-color: white;
+    border-radius: 7px;
+    padding: 5px 10px;
+}
+
+button:hover {
+    cursor: pointer;
+    border: 2px solid #91ddff;
+}
+
+.logo-text {
+    width: 400px;
+    height: auto;
+    text-align: center;
+    margin: 0 auto;
+    padding: 12px 0;
+}
+
+.logo-text img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
 .logo {
     width: 120px;
@@ -32,6 +73,9 @@
 
 header {
     padding-left: 25px;
+    border-right: 3px solid #9cddff;
+    margin: 10px 0;
+    padding-right: 20px;
 }
 
 ul {
