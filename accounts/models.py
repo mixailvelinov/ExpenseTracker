@@ -23,8 +23,6 @@ class CustomUser(auth_models.AbstractUser):
         return total_deposits - total_expenses - bought_stuff
 
 
-
-
 class Profile(models.Model):
     user = models.ForeignKey(
         'accounts.CustomUser',

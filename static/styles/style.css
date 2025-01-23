@@ -67,6 +67,7 @@ button:hover {
     border-radius: 10px;
     padding-bottom: 10px;
     display: flex;
+    border: 5px solid #ebf7ff;
 }
 
 .content-container {

@@ -33,6 +33,9 @@ class UserLogoutView(LogoutView):
 def user_details(request, id):
     user = get_object_or_404(CustomUser, id=id)
 
+    if user != request.user:
+        raise PermissionDenied("You can't view this account!")
+
     context = {
         'user': user,
     }
@@ -44,7 +47,6 @@ class UserUpdateView(UpdateView, LoginRequiredMixin):
     model = CustomUser
     template_name = 'accounts/edit.html'
     form_class = UserUpdateForm
-    success_url = 'index'
     pk_url_kwarg = 'id'
 
     def get_success_url(self):
@@ -52,16 +54,22 @@ class UserUpdateView(UpdateView, LoginRequiredMixin):
 
     def get_object(self, queryset=None):
         user = CustomUser.objects.get(pk=self.kwargs['id'])
+
         if user != self.request.user:
             raise PermissionDenied('You do not have permission to edit this account!')
 
+        return user
+
 
 def user_delete_view(request, id):
-    user = CustomUser.objects.filter(id=id)
+    user = get_object_or_404(CustomUser, id=id)
 
     context = {
         'user': user,
     }
+
+    if user != request.user:
+        raise PermissionDenied("You can't delete someone else's account!")
 
     if request.method == 'POST':
         user.delete()
@@ -69,4 +77,3 @@ def user_delete_view(request, id):
 
     return render(request, 'accounts/delete.html', context)
 
-    #TO DO: make sure that a user can't delete someone else's account or while he's logged out
