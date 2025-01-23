@@ -8,6 +8,20 @@ class UserRegisterForm(UserCreationForm):
         model = CustomUser
         fields = ['username', 'email', 'password1', 'password2', 'first_name', 'last_name', 'date_of_birth']
 
+        widgets = {
+            'username': forms.TextInput(attrs={'placeholder': 'Username'}),
+            'email': forms.TextInput(attrs={'placeholder': 'Email address'}),
+            'first_name': forms.TextInput(attrs={'placeholder': 'First name'}),
+            'last_name': forms.TextInput(attrs={'placeholder': 'Last name'}),
+            'date_of_birth': forms.DateInput(attrs={'placeholder': 'Date of birth'})
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(UserRegisterForm, self).__init__(*args, **kwargs)
+        # Add placeholders for password fields explicitly
+        self.fields['password1'].widget.attrs.update({'placeholder': 'Password'})
+        self.fields['password2'].widget.attrs.update({'placeholder': 'Confirm password'})
+
 
 class UserLoginForm(AuthenticationForm):
     username = forms.EmailField(widget=forms.EmailInput(attrs={'autofocus': True, 'placeholder': 'Username'}))

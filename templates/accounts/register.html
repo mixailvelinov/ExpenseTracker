@@ -6,7 +6,13 @@
 
     <form action="" method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ form.username }}
+        {{ form.email }}
+        {{ form.password1 }}
+        {{ form.password2 }}
+        {{ form.first_name }}
+        {{ form.last_name }}
+        {{ form.date_of_birth }}
         <button type="submit">Register</button>
     </form>
 

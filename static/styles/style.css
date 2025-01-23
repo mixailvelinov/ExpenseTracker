@@ -115,12 +115,12 @@ nav ul li a {
 
 /*deposit and wishlist*/
 
-.deposit-form, .wish-create-container, .expenses-form, .login-form {
+.deposit-form, .wish-create-container, .expenses-form, .login-form, .register-form {
     display: flex;
     justify-content: center;
 }
 
-.deposit-form form, .wish-create-container form, .expenses-form form, .login-form form {
+.deposit-form form, .wish-create-container form, .expenses-form form, .login-form form, .register-form form {
     display: flex;
     flex-direction: column;
     width: 250px;
@@ -128,7 +128,7 @@ nav ul li a {
     gap: 3px;
 }
 
-.deposit-form form button, .wish-create-container form button, .expenses-form form button, .login-form form button {
+.deposit-form form button, .wish-create-container form button, .expenses-form form button, .login-form form button, .register-form form button {
     width: 130px;
     margin: 0 auto;
     margin-top: 10px;
@@ -182,4 +182,8 @@ li {
 .expenses-card {
     background-color: #ff6767;
     border-radius: 8px;
+}
+
+.register-form {
+    padding-top: 15px;
 }
