@@ -6,6 +6,7 @@
     {% if object_list %}
         {% for obj in object_list %}
             <ul>
+            <div class="wish-card">
                 <li>{{ obj.title }}</li>
                 <li>{{ obj.price }}</li>
                 <li>{{ obj.date_added }}</li>
@@ -20,7 +21,9 @@
                             {% csrf_token %}
                             <button class="wish-button">Buy item</button>
                         </form>
-                </div>    
+                                    </div>
+
+                </div>   
             </ul>
         {% endfor %}
     {% else %}

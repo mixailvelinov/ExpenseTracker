@@ -38,8 +38,9 @@
                     </li>
                 {% endif %}
             </ul>
-                        <p class="funds-counter">Total funds: {{ request.user.balance }}</p>
-
+            {% if user.is_authenticated %}
+                <p class="funds-counter">Total funds: {{ request.user.balance }}</p>
+            {% endif %}
         </nav>
     </header>
 

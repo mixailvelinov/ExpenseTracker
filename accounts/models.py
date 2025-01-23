@@ -20,7 +20,8 @@ class CustomUser(auth_models.AbstractUser):
         total_deposits = self.deposit_set.aggregate(Sum('amount'))['amount__sum'] or 0
         total_expenses = self.expense_set.aggregate(Sum('amount'))['amount__sum'] or 0
         bought_stuff = self.wish_set.filter(is_bought=True).aggregate(Sum('price'))['price__sum'] or 0
-        return total_deposits - total_expenses - bought_stuff
+        result = total_deposits - total_expenses - bought_stuff
+        return f"{result:.2f}"
 
 
 class Profile(models.Model):

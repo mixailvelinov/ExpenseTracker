@@ -52,11 +52,17 @@ button:hover {
     margin: 0 auto;
     display: flex;
     align-items: center;
+
 }
 .logo img {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.6s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.2);
 }
 
 .body-container {
@@ -134,7 +140,7 @@ nav ul li a {
     background-color: #97ffde;
     width: 100%;
     margin: 0 auto;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 li {
@@ -144,6 +150,12 @@ li {
 /*wishlist and wishlist history*/
 .wishlist-buttons {
     padding-bottom: 10px;
+}
+
+.wish-card {
+    background-color: #deacff;
+    padding-bottom: 5px;
+    border-radius: 8px;
 }
 
 .modify-wish-buttons {
@@ -157,5 +169,17 @@ li {
 .wish-button, .wish-button a {
     padding: 3px;
     margin: 0;
+}
 
+.bought-item {
+    border-radius: 5px;
+    background-color: #e0ffe8;
+    padding: 7px 8px;
+}
+
+/*expenses*/
+
+.expenses-card {
+    background-color: #ff6767;
+    border-radius: 8px;
 }
