@@ -8,6 +8,17 @@
         {% csrf_token %}
         {{ form.username }}
         {{ form.password }}
+        
+        {% if form.errors %}
+            <div class="form-error">
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        
         <button type="submit">Login</button>
     </form>
 

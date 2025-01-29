@@ -3,6 +3,7 @@ from django.contrib.auth import models as auth_models
 from django.db.models import Sum
 
 from accounts.manager import CustomUserManager
+from accounts.validators import name_validator
 
 
 # Create your models here.
@@ -11,6 +12,20 @@ class CustomUser(auth_models.AbstractUser):
     email = models.EmailField(unique=True)
     date_of_birth = models.DateField(null=True, blank=True)
     objects = CustomUserManager()
+
+    first_name = models.CharField(
+        max_length=150,
+        validators=[
+            name_validator
+        ]
+    )
+
+    last_name = models.CharField(
+        max_length=150,
+        validators=[
+            name_validator
+        ]
+    )
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
