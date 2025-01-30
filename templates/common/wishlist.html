@@ -5,12 +5,23 @@
 <div class="wishlist">
     {% if object_list %}
         {% for obj in object_list %}
-            <ul>
             <div class="wish-card">
-                <li>{{ obj.title }}</li>
-                <li>{{ obj.price }}</li>
-                <li>{{ obj.date_added }}</li>
-                <li>Why I want it: {{ obj.description }}</li>
+
+
+                {% if obj.image %}
+                    <div class="wish-info">
+                            <div class="wish-photo">
+                        <img src="{{ obj.image }}" alt="">
+                    </div>
+                {% endif %}
+                    <ul>
+                        <li> {{ obj.title }}</li>
+                        <li>{{ obj.price|floatformat:2 }}</li>
+                        <li>{{ obj.date_added }}</li>
+                        <li>{{ obj.description }}</li>
+                    </ul>
+                </div>
+
                 <div class="modify-wish-buttons">
                     <button class="wish-button"><a href="{% url 'wishlist-edit' obj.id %}">Edit Wish</a></button>
                         <form action="{% url 'wishlist-delete' obj.id %}" method="post">
@@ -21,10 +32,9 @@
                             {% csrf_token %}
                             <button class="wish-button">Buy item</button>
                         </form>
-                                    </div>
+                </div>
 
-                </div>   
-            </ul>
+                </div>
         {% endfor %}
     {% else %}
         <p>You haven't added anything to your wishlist yet.</p>
@@ -37,3 +47,4 @@
 </div>
 
 {% endblock %}
+

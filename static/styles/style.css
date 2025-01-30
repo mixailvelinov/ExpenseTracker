@@ -10,10 +10,14 @@ input, textarea, select {
 }
 
 a {
-    padding-bottom: 8px;
     text-decoration: none;
     color: #1b1b1b;
     display: block;
+}
+
+nav a {
+    padding: 3px;
+    margin-bottom: 8px;
 }
 
 nav a:hover {
@@ -67,12 +71,10 @@ button:hover {
 
 .body-container {
     text-align: center;
-    width: 42%;
     margin: 0 auto;
     background-color: #bee0f3;
     border-radius: 10px;
     padding-bottom: 10px;
-    display: flex;
     border: 5px solid #ebf7ff;
 }
 
@@ -85,12 +87,11 @@ button:hover {
 
 header {
     padding-left: 25px;
-    border-right: 3px solid #9cddff;
     margin: 10px 0;
     padding-right: 20px;
 }
 
-ul {
+ul, li {
     list-style: none;
     padding: 0;
 }
@@ -112,6 +113,10 @@ nav ul li a {
     border-radius: 20px;
 }
 
+/*index*/
+.greeting {
+    font-size: 35px;
+}
 
 /*deposit and wishlist*/
 
@@ -144,26 +149,36 @@ nav ul li a {
 }
 
 li {
-    padding: 3px;
+    padding: 2px;
 }
 
 /*wishlist and wishlist history*/
 .wishlist-buttons {
-    padding-bottom: 10px;
+    padding: 10px;
 }
 
 .wish-card {
-    background-color: #deacff;
-    padding-bottom: 5px;
+    background-color: rgba(235, 209, 255, 0.6);
     border-radius: 8px;
+    padding: 5px;
+    border: 2px solid #c3edff;
+
+}
+
+.wishlist {
+    display: flex;
+    flex-direction: column;
 }
 
 .modify-wish-buttons {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
-    margin-top: 10px;
     gap: 6px;
+    margin-bottom: 6px;
+}
+
+.modify-wish-buttons button, .modify-wish-buttons button a {
+    padding: 1px;
 }
 
 .wish-button, .wish-button a {
@@ -171,11 +186,42 @@ li {
     margin: 0;
 }
 
+.wish-info ul li {
+    text-align: left;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.wish-info ul {
+    width: 60%;
+}
+
 .bought-item {
     border-radius: 5px;
     background-color: #e0ffe8;
     padding: 7px 8px;
 }
+
+.wish-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wish-photo {
+    width: 90px;
+    height: auto;
+    margin: 0 auto;
+
+}
+
+.wish-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+}
+
 
 /*expenses*/
 
@@ -187,3 +233,5 @@ li {
 .register-form {
     padding-top: 15px;
 }
+
+
