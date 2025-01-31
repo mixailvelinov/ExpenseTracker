@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<h1 class="headline">Wishlist</h1>
 <div class="wishlist">
     {% if object_list %}
         {% for obj in object_list %}
@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="modify-wish-buttons">
-                    <button class="wish-button"><a href="{% url 'wishlist-edit' obj.id %}">Edit Wish</a></button>
+                    <a href="{% url 'wishlist-edit' obj.id %}"><i class="fa fa-edit" style="font-size: 30px"></i></a>
                         <form action="{% url 'wishlist-delete' obj.id %}" method="post">
                             {% csrf_token %}
                             <button class="wish-button">Delete Wish</button>

@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <h1 class="headline">Expenses</h1>
 
-    <a href="{% url 'expenses-history' %}">History</a>
+    <a class="history" href="{% url 'expenses-history' %}">History</a>
 
     <div class="expenses-form">
         <form action="" method="post">

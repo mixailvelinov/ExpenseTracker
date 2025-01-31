@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lexend+Giga:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lexend+Giga:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&family=Playwrite+AU+SA+Guides&family=Turret+Road:wght@200;300;400;500;700;800&display=swap');
 
 p, a, ul, li, button {
     font-family: "Exo 2", serif;
@@ -72,7 +73,7 @@ button:hover {
 .body-container {
     text-align: center;
     margin: 0 auto;
-    background-color: #bee0f3;
+    background-color: #b9e2fa;
     border-radius: 10px;
     padding-bottom: 10px;
     border: 5px solid #ebf7ff;
@@ -83,6 +84,20 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.history {
+    padding-bottom: 10px;
+    padding-top: 5px;
+    font-weight: 400;
+    width: 100px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.content-container a:hover {
+    background-color: #7fd8ff;
+    display: inline-block;
 }
 
 header {
@@ -114,8 +129,16 @@ nav ul li a {
 }
 
 /*index*/
-.greeting {
-    font-size: 35px;
+.headline {
+    font-size: 30px;
+    font-family: 'Lexend Giga', serif;
+    font-weight: 200;
+}
+
+h2 {
+    font-size: 23px;
+    font-family: 'Lexend Giga', serif;
+    font-weight: 200;
 }
 
 /*deposit and wishlist*/
@@ -123,6 +146,8 @@ nav ul li a {
 .deposit-form, .wish-create-container, .expenses-form, .login-form, .register-form {
     display: flex;
     justify-content: center;
+        flex-basis: 200px;
+
 }
 
 .deposit-form form, .wish-create-container form, .expenses-form form, .login-form form, .register-form form {
@@ -130,7 +155,8 @@ nav ul li a {
     flex-direction: column;
     width: 250px;
     padding: 5px;
-    gap: 3px;
+    gap: 8px;
+
 }
 
 .deposit-form form button, .wish-create-container form button, .expenses-form form button, .login-form form button, .register-form form button {
@@ -157,8 +183,12 @@ li {
     padding: 10px;
 }
 
+.wishlist-buttons button a:hover {
+    background-color: white;
+}
+
 .wish-card {
-    background-color: rgba(235, 209, 255, 0.6);
+    background-color: rgb(121, 210, 248);
     border-radius: 8px;
     padding: 5px;
     border: 2px solid #c3edff;
@@ -168,6 +198,8 @@ li {
 .wishlist {
     display: flex;
     flex-direction: column;
+    flex-basis: 260px;
+
 }
 
 .modify-wish-buttons {
@@ -209,7 +241,7 @@ li {
 }
 
 .wish-photo {
-    width: 90px;
+    width: 100px;
     height: auto;
     margin: 0 auto;
 
@@ -233,5 +265,3 @@ li {
 .register-form {
     padding-top: 15px;
 }
-
-
