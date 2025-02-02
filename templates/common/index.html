@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-    <h1 class="headline">Hello, {{ request.user.first_name }}!</h1>
+    
+    {% if user.is_authenticated %}
+        <h1 class="headline">Hello, {{ request.user.first_name }}!</h1>
+    {% else %}
+        <h1 class="headline">Welcome to Expense Tracker!</h1>
+        <p id="greeting-message">This web app allows you to track your savings and keep a diary on your expenses and items you wish to buy.</p>
+    {% endif %}
 
 {% endblock %}

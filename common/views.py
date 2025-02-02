@@ -67,6 +67,7 @@ class WishDelete(DeleteView, LoginRequiredMixin):
     model = Wish
     success_url = reverse_lazy('wishlist')
     pk_url_kwarg = 'id'
+    template_name = 'common/wishlist-delete.html'
 
     def get_object(self, queryset=None):
         wish = Wish.objects.get(id=self.kwargs['id'])
@@ -83,7 +84,7 @@ def wish_buy(request, id):
         item.save()
         return redirect('wishlist')
 
-    return render(request, 'common/wishlist.html')
+    return render(request, 'common/wishlist-buy.html')
 
 
 class BoughtItemsListView(ListView):
@@ -94,5 +95,7 @@ class BoughtItemsListView(ListView):
         queryset = Wish.objects.filter(is_bought=True)
 
         return queryset
+
+
 
 

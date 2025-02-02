@@ -1,50 +1,48 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 class="headline">Wishlist</h1>
-<div class="wishlist">
-    {% if object_list %}
-        {% for obj in object_list %}
-            <div class="wish-card">
 
+    <h1 class="headline">Wishlist</h1>
 
-                {% if obj.image %}
-                    <div class="wish-info">
-                            <div class="wish-photo">
-                        <img src="{{ obj.image }}" alt="">
-                    </div>
-                {% endif %}
+    <div class="wishlist">
+        {% if object_list %}
+            {% for obj in object_list %}
+                <div class="wish-card">
+
+                    {% if obj.image %}
+
+                        <div class="wish-info">
+                                <div class="wish-photo">
+                            <img src="{{ obj.image }}" alt="">
+                        </div>
+                    {% endif %}
+
                     <ul>
                         <li> {{ obj.title }}</li>
                         <li>{{ obj.price|floatformat:2 }}</li>
                         <li>{{ obj.date_added }}</li>
                         <li>{{ obj.description }}</li>
                     </ul>
+
+
+                    <div class="modify-wish-buttons">
+                        <a href="{% url 'wishlist-edit' obj.id %}"><i class="fa fa-edit" style="font-size: 25px"></i></a>
+                        <a href="{% url 'wishlist-delete' obj.id %}"><i class="fa fa-trash-o" style="font-size:25px"></i></a>
+                        <a href="{% url 'wishlist-buy' obj.id %}"><i class="fa fa-shopping-cart" style="font-size:25px"></i></a>
+                    </div>
                 </div>
 
-                <div class="modify-wish-buttons">
-                    <a href="{% url 'wishlist-edit' obj.id %}"><i class="fa fa-edit" style="font-size: 30px"></i></a>
-                        <form action="{% url 'wishlist-delete' obj.id %}" method="post">
-                            {% csrf_token %}
-                            <button class="wish-button">Delete Wish</button>
-                        </form>
-                    <form action="{% url 'wishlist-buy' obj.id %}" method="post">
-                            {% csrf_token %}
-                            <button class="wish-button">Buy item</button>
-                        </form>
-                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>You haven't added anything to your wishlist yet.</p>
+        {% endif %}
 
-                </div>
-        {% endfor %}
-    {% else %}
-        <p>You haven't added anything to your wishlist yet.</p>
-    {% endif %}
-
-    <div class="wishlist-buttons">
-        <button><a href="{% url 'wishlist-create' %}">Create a wish</a></button>
-        <button><a href="{% url 'bought-items' %}">Bought items</a></button>
+        <div class="wishlist-buttons">
+            <button><a href="{% url 'wishlist-create' %}">Create a wish</a></button>
+            <button><a href="{% url 'bought-items' %}">Bought items</a></button>
+        </div>
     </div>
-</div>
 
 {% endblock %}
 

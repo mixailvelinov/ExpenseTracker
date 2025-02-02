@@ -135,6 +135,10 @@ nav ul li a {
     font-weight: 200;
 }
 
+#greeting-message {
+    margin: 10px;
+}
+
 h2 {
     font-size: 23px;
     font-family: 'Lexend Giga', serif;
@@ -146,7 +150,6 @@ h2 {
 .deposit-form, .wish-create-container, .expenses-form, .login-form, .register-form {
     display: flex;
     justify-content: center;
-        flex-basis: 200px;
 
 }
 
@@ -195,12 +198,6 @@ li {
 
 }
 
-.wishlist {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 260px;
-
-}
 
 .modify-wish-buttons {
     display: flex;
@@ -265,3 +262,12 @@ li {
 .register-form {
     padding-top: 15px;
 }
+
+.fa {
+    padding: 5px;
+}
+
+.fa:hover {
+    color: white;
+}
+
