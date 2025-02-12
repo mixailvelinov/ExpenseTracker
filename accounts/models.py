@@ -45,8 +45,8 @@ class Profile(models.Model):
         on_delete=models.CASCADE
     )
 
-    occupation = models.CharField(max_length=40),
-    profile_picture = models.URLField(blank=True, null=True),
+    occupation = models.CharField(max_length=40, blank=True, null=True)
+    profile_picture = models.URLField(blank=True, null=True)
     interests = models.CharField(max_length=100, blank=True, null=True)
 
 
