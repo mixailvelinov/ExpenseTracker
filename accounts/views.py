@@ -18,6 +18,14 @@ class RegisterView(CreateView):
     template_name = 'accounts/register.html'
     success_url = reverse_lazy('index')
 
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        user = self.request.user
+        profile = Profile.objects.create(user=self.object)
+        user.profile = profile
+
+        return response
+
 
 class UserLoginView(LoginView):
     model = CustomUser
