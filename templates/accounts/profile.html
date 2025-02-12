@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>Personal details</h2>
+    <div class='login-form'>
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.occupation }}
+            {{ form.profile_picture }}
+            {{ form.interests }}
+        <button type="submit">Update</button>
+        </form>
+    </div>
+
+{% endblock %}

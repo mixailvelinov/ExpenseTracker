@@ -23,6 +23,10 @@
         border-bottom: 3px solid #9cddff;
         margin: 10px 20px;
     }
+
+    footer {
+        width: 60%;
+    }
 }
 
 @media (max-width: 700px) {
@@ -33,5 +37,16 @@
 
     .logo-text {
         width: 250px;
+    }
+
+    footer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    footer p {
+        text-align: center;
     }
 }

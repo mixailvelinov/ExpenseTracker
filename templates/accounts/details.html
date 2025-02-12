@@ -1,9 +1,19 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
     <div class="account-details">
         <ul>
+            
+            <div class="profile-pic-container">
+                {% if profile.profile_picture %}
+                    <img src="{{ profile.profile_picture }}" alt="">
+                {% else %}
+                    <img src="{% static 'images/user.jpg' %}" alt="">
+                {% endif %}
+            </div>
+        
             <li>Username: {{ user.username }}</li>
                 {% if user.first_name %}
                     <li>Name: {{ user.first_name }}</li>
@@ -11,12 +21,15 @@
             <li>Email: {{ user.email }}</li>
             <li>Date of birth: {{ user.date_of_birth }}</li>
             <li>Date joined: {{ user.date_joined|date:'d M, Y' }}</li>
-            {% if obj.profile.occupation %}
-                <li>Occupation: {{ user.profile.occupation }}</li>
+
+            {% if profile.occupation %}
+                <li>Occupation: {{ profile.occupation }}</li>
             {% endif %}
-            {% if user.profile.interests %}
-                <li>Interest: {{ user.profile.interests }}</li>
+
+            {% if profile.interests %}
+                <li>Interests: {{ profile.interests }}</li>
             {% endif %}
+
         </ul>
 
         <div class="account-buttons-container">
@@ -24,6 +37,7 @@
             <button><a href="{% url 'edit' request.user.id %}">Edit</a></button>
             <button><a href="{% url 'delete' request.user.id %}">Delete</a></button>
         </div>
+        <a id='change-details-button' href="{% url 'profile' request.user.id %}">Change personal details</a>
 
     </div>
 

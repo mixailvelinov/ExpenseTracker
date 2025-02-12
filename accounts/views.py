@@ -6,7 +6,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import CreateView, ListView, UpdateView
 
-from accounts.forms import UserRegisterForm, UserLoginForm, UserUpdateForm
+from accounts.forms import UserRegisterForm, UserLoginForm, UserUpdateForm, ProfileUpdateForm
 from accounts.models import CustomUser, Profile
 
 
@@ -44,8 +44,11 @@ def user_details(request, id):
     if user != request.user:
         raise PermissionDenied("You can't view this account!")
 
+    profile = Profile.objects.get(user__id=user.id)
+
     context = {
         'user': user,
+        'profile': profile,
     }
 
     return render(request, 'accounts/details.html', context)
@@ -85,3 +88,16 @@ def user_delete_view(request, id):
 
     return render(request, 'accounts/delete.html', context)
 
+
+class ProfileUpdateView(UpdateView):
+    model = Profile
+    form_class = ProfileUpdateForm
+    template_name = 'accounts/profile.html'
+    pk_url_kwarg = 'id'
+    success_url = reverse_lazy('details')
+
+    def get_success_url(self):
+        return reverse_lazy('details', kwargs={'id': self.object.user.id})
+
+    def get_object(self, queryset=None):
+        return Profile.objects.get(user__id=self.kwargs['id'])

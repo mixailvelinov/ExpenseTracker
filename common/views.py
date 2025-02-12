@@ -92,7 +92,7 @@ class BoughtItemsListView(ListView):
     template_name = 'common/bought-items.html'
 
     def get_queryset(self):
-        queryset = Wish.objects.filter(is_bought=True)
+        queryset = Wish.objects.filter(is_bought=True, user_id=self.request.user.id)
 
         return queryset
 

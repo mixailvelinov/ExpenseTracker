@@ -46,3 +46,14 @@ class UserUpdateForm(forms.ModelForm):
 
         }
 
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ['user']
+
+        widgets = {
+            'occupation': forms.TextInput(attrs={'placeholder': 'Occupation'}),
+            'profile_picture': forms.TextInput(attrs={'placeholder': 'Upload a URL photo'}),
+            'interests': forms.TextInput(attrs={'placeholder': 'Interests'}),
+        }
