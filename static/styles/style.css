@@ -186,6 +186,8 @@ h2 {
     width: 100%;
     margin: 0 auto;
     border-radius: 8px;
+    box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.1);
+
 }
 
 li {
@@ -207,6 +209,7 @@ li {
     padding: 5px;
     border: 2px solid #c3edff;
     margin-bottom: 8px;
+    box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 
@@ -252,7 +255,6 @@ li {
     width: 90px;
     height: auto;
     margin: 0 auto;
-
 }
 
 .wish-photo img {
@@ -268,6 +270,7 @@ li {
 .expenses-card {
     background-color: #ff6767;
     border-radius: 8px;
+    box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .register-form {
@@ -291,6 +294,7 @@ li {
 
 #change-details-button:hover {
     border-radius: 10px;
+    background-color: #d8f0ff;
 }
 
 /*account details*/
@@ -304,7 +308,7 @@ li {
 .profile-pic-container img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
 .account-details ul li {
@@ -368,10 +372,17 @@ footer p {
 
 .pagination a:hover {
     color: #1f5d79;
-
-;
 }
 
 .page-button:hover {
     color: #1f5d79;
+}
+
+#hello {
+    transition: transform 1.5s;
+}
+
+#hello:hover {
+    transform: rotate(20deg) scale(1.8);
+    cursor: pointer;
 }
