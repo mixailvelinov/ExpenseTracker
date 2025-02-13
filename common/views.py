@@ -37,15 +37,19 @@ class WishCreate(CreateView, LoginRequiredMixin):
     def form_valid(self, form):
         user = self.request.user
         form.instance.user = user
+
         return super().form_valid(form)
 
 
 class WishlistView(ListView, LoginRequiredMixin):
     model = Wish
     template_name = 'common/wishlist.html'
+    paginate_by = 3
+
 
     def get_queryset(self):
         queryset = Wish.objects.filter(user_id=self.request.user.id, is_bought=False)
+
         return queryset
 
 
@@ -58,8 +62,10 @@ class WishEdit(UpdateView, LoginRequiredMixin):
 
     def get_object(self, queryset=None):
         wish = Wish.objects.get(id=self.kwargs['id'])
+
         if wish.user.id != self.request.user.id:
             raise PermissionDenied('You do not have permission to edit this wish!')
+
         return wish
 
 
@@ -71,8 +77,10 @@ class WishDelete(DeleteView, LoginRequiredMixin):
 
     def get_object(self, queryset=None):
         wish = Wish.objects.get(id=self.kwargs['id'])
+
         if wish.user.id != self.request.user.id:
             raise PermissionDenied('You do not have permission to delete this wish!')
+
         return wish
 
 
@@ -90,6 +98,7 @@ def wish_buy(request, id):
 class BoughtItemsListView(ListView):
     model = Wish
     template_name = 'common/bought-items.html'
+    paginate_by = 5
 
     def get_queryset(self):
         queryset = Wish.objects.filter(is_bought=True, user_id=self.request.user.id)
