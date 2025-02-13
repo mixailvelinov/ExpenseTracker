@@ -105,7 +105,7 @@ button:hover {
     border-radius: 10px;
 }
 
-.content-container a:hover {
+.content-container .history:hover {
     background-color: #7fd8ff;
     display: inline-block;
 }
@@ -345,4 +345,31 @@ footer p {
 .contacts .fa:hover {
     cursor: pointer;
     transform: scale(1.5);
+}
+
+/*paginator*/
+
+.pagination {
+    display: flex;
+    gap: 10px;
+    margin: 0 auto;
+    text-align: center;
+    color: #4ac1f7;
+    font-size: 20px;
+}
+
+.pagination a{
+    flex-direction: column;
+    text-decoration: none;
+    color: black;
+}
+
+.pagination a:hover {
+    color: #1f5d79;
+
+;
+}
+
+.page-button:hover {
+    color: #1f5d79;
 }

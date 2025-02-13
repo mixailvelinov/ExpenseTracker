@@ -11,5 +11,4 @@ class ExpenseCreateForm(forms.ModelForm):
         widgets = {
             'amount': forms.TextInput(attrs={'placeholder': 'Amount spent...'}),
             'expense_name': forms.TextInput(attrs={'placeholder': 'I spent money on...'}),
-            'description': forms.TextInput(attrs={'placeholder': 'Expense description...'}),
         }

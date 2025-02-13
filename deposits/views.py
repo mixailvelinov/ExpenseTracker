@@ -26,6 +26,7 @@ class DepositView(CreateView):
 class DepositHistory(ListView):
     model = Deposit
     template_name = 'deposits/deposit-history.html'
+    paginate_by = 5
 
     def get_queryset(self):
         queryset = Deposit.objects.filter(user_id=self.request.user.id).order_by('-date')

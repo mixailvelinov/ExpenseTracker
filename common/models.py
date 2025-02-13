@@ -6,7 +6,6 @@ from django.db import models
 
 class Wish(models.Model):
     title = models.CharField(max_length=50, validators=[MinLengthValidator(3)])
-    description = models.CharField(max_length=100, null=True, blank=True)
     price = models.FloatField(validators=[MinValueValidator(1.00)])
     is_bought = models.BooleanField(default=False)
     date_added = models.DateField(auto_now_add=True)

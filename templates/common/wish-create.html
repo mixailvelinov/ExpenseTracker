@@ -6,7 +6,6 @@
         <form method='post' action="">
             {% csrf_token %}
             {{ form.title }}
-            {{ form.description }}
             {{ form.price }}
             {{ form.image }}
             <button type="submit">Save</button>
