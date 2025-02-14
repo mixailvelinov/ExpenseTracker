@@ -4,10 +4,13 @@ from django.urls import reverse_lazy
 
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView, UpdateView
 
 from accounts.forms import UserRegisterForm, UserLoginForm, UserUpdateForm, ProfileUpdateForm
 from accounts.models import CustomUser, Profile
+from common.models import Wish
+from deposits.models import Deposit
+from expenses.models import Expense
 
 
 # Create your views here.
@@ -101,3 +104,25 @@ class ProfileUpdateView(UpdateView):
 
     def get_object(self, queryset=None):
         return Profile.objects.get(user__id=self.kwargs['id'])
+
+
+def reset_account(request):
+    user = request.user
+    expenses = Expense.objects.filter(user_id=user.id)
+    deposits = Deposit.objects.filter(user_id=user.id)
+    wishes = Wish.objects.filter(user_id=user.id)
+
+    if request.method == "POST":
+        expenses.delete()
+        deposits.delete()
+        wishes.delete()
+
+        return redirect('index')
+
+    context = {
+        "user": user
+    }
+    return render(request, 'accounts/reset.html', context)
+
+
+

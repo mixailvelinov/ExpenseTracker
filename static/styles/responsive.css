@@ -49,4 +49,8 @@
     footer p {
         text-align: center;
     }
+
+    body {
+        height: 100%;
+    }
 }

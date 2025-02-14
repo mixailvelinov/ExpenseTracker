@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="reset">
+        <p>Resetting the account will delete all your deposits, expenses and wishlist histories.</p>
+        <p>If you wish to reset your account, you can confirm by tapping on the button below.</p>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <button class="reset-btn" type="submit">Reset</button>
+        </form>
+
+    </div>
+{% endblock %}
