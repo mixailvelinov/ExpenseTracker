@@ -42,7 +42,7 @@
                 {% endif %}
             </ul>
             {% if user.is_authenticated %}
-                <p class="funds-counter">Total funds: {{ request.user.balance }}</p>
+                <p class="funds-counter">Total funds: <br> {{ request.user.balance }}</p>
                 <br>
             {% endif %}
 
