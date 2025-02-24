@@ -108,8 +108,6 @@ else:
         }
     }
 
-
-
 # if DB_URL:
 #     # If DB_URL is present, use it to configure the database settings
 #     DATABASES = {
