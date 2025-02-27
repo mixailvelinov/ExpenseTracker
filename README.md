@@ -13,7 +13,7 @@ Clone or download the repo to your local machine.
 ### 2. Create the .env File
 
 - Use the provided .env template in the project to create your .env file.
-- 
+  
 ### 3. Set Up the Virtual Environment
 Run the following commands to set up your Python virtual environment:
 
