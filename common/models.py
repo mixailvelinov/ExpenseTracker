@@ -12,3 +12,6 @@ class Wish(models.Model):
     image = models.URLField(null=True, blank=True)
     user = models.ForeignKey('accounts.CustomUser', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.title
+

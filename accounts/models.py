@@ -31,6 +31,9 @@ class CustomUser(auth_models.AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
 
+    def __str__(self):
+        return self.username
+
     @property
     def balance(self):
         total_deposits = self.deposit_set.aggregate(Sum('amount'))['amount__sum'] or 0
@@ -49,6 +52,9 @@ class Profile(models.Model):
     occupation = models.CharField(max_length=40, blank=True, null=True)
     profile_picture = models.URLField(blank=True, null=True)
     interests = models.CharField(max_length=100, blank=True, null=True)
+
+    def __str__(self):
+        return self.user.username
 
 
 
