@@ -31,6 +31,7 @@
                 {% else %}
                     <li><a href="{% url 'details' request.user.id %}">Account</a></li>
                     <li><a href="{% url 'deposit' %}">Deposit</a></li>
+                    <li><a href="{% url 'expenses' %}">Expenses</a></li>
                     <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
                     <li><a href="{% url 'reset' %}">Reset</a></li>
                     <li>
