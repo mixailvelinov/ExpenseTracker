@@ -9,6 +9,7 @@ from accounts.validators import name_validator
 # Create your models here.
 
 class CustomUser(auth_models.AbstractUser):
+    username = models.CharField(max_length=50, unique=True)
     email = models.EmailField(unique=True)
     date_of_birth = models.DateField(null=True, blank=True)
     objects = CustomUserManager()

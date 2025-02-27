@@ -16,8 +16,16 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
 
-        username = extra_fields.get('username', email.split('@')[0])
+        # Set the username based on the email if it's not provided
+        username = extra_fields.get('username')
+        if not username:
+            username = email.split('@')[0]  # Use part of the email as the default username
+
+        # Check if username already exists
         if self.model.objects.filter(username=username).exists():
             raise ValidationError(f"Username '{username}' is already taken.")
 
-        return self.create_user(email, password, username=username, **extra_fields)
+        # Pass the username as part of extra_fields instead of explicitly as an argument
+        extra_fields['username'] = username
+
+        return self.create_user(email, password, **extra_fields)
