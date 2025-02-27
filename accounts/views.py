@@ -1,3 +1,4 @@
+from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.urls import reverse_lazy
@@ -26,6 +27,8 @@ class RegisterView(CreateView):
         user = self.request.user
         profile = Profile.objects.create(user=self.object)
         user.profile = profile
+
+        login(self.request, self.object)
 
         return response
 

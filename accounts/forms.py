@@ -13,7 +13,7 @@ class UserRegisterForm(UserCreationForm):
             'email': forms.TextInput(attrs={'placeholder': 'Email address'}),
             'first_name': forms.TextInput(attrs={'placeholder': 'First name'}),
             'last_name': forms.TextInput(attrs={'placeholder': 'Last name'}),
-            'date_of_birth': forms.DateInput(attrs={'placeholder': 'Date of birth'})
+            'date_of_birth': forms.DateInput(attrs={'placeholder': 'YYYY--MM-DD'})
         }
 
     def __init__(self, *args, **kwargs):
@@ -42,7 +42,7 @@ class UserUpdateForm(forms.ModelForm):
             'email': forms.TextInput(attrs={'placeholder': 'Email address'}),
             'first_name': forms.TextInput(attrs={'placeholder': 'First Name'}),
             'last_name': forms.TextInput(attrs={'placeholder': 'Last Name'}),
-            'date_of_birth': forms.DateInput(attrs={'placeholder': 'Date of birth'}),
+            'date_of_birth': forms.DateInput(attrs={'placeholder': 'YYYY--MM-DD'}),
 
         }
 
