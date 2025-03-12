@@ -2,7 +2,7 @@
 # Expense Tracker
 **The application is live at [ExpenseTracker production](https://expensetracker-production-2afe.up.railway.app/)**
 
-Expense Tracker is a web app that acts ad a diary for your expenses. You can deposit, register expenses, create a wishlist and monitor your total expenses. Whenever you buy something from your wishlist, you can mark it as bought and the amount will be retraced from your total funds.
+Expense Tracker is a Django web app that acts as a diary for your expenses. You can deposit, register expenses, create a wishlist and monitor your total expenses. Whenever you buy something from your wishlist, you can mark it as bought and the amount will be retraced from your total funds.
 
 ## Setup Instructions
 Follow these steps to run the project locally:
